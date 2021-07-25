@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import "zingnews";
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+.logo {
+  height: 60px;
+}

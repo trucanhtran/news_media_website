@@ -1,0 +1,11 @@
+<header id="id_header">
+  <div class="logo">
+    <%=link_to image_tag('https://printgo.vn/uploads/media/774255/xzing-news_1587784156.jpg.pagespeed.ic.ckUXBU5Eea.jpg'), root_path %>
+  </div>
+  <div class="category-menu">
+    <% @categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
+  </div>
+  <div class="toolbox"></div>
+</header>

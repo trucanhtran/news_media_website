@@ -1,0 +1,19 @@
+// Place all the styles related to the Zingnews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Header */
+
+#id_header {
+  position: sticky !important;
+  top: 0 !important;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  min-height: 50px;
+  align-items: center;
+}
+.category-menu {
+  flex-flow: 1;
+}
