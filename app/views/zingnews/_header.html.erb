@@ -1,11 +1,20 @@
-<header id="id_header">
-  <div class="logo">
-    <%=link_to image_tag('https://printgo.vn/uploads/media/774255/xzing-news_1587784156.jpg.pagespeed.ic.ckUXBU5Eea.jpg'), root_path %>
+<header id="id_header" class="pd-2-side">
+  <div class="logo flex-column header-logo  pd-bottom-4 ">
+    <%=link_to image_tag('https://static-znews.zadn.vn/images/logo-zing-home.svg'), root_path %>
+    <span>Tri thức trực tuyến</span>
   </div>
-  <div class="category-menu">
+  <div class="category-menu flex-row">
     <% @categories.each do |category| %>
-      <%= category.name %>
+      <div class="category-name pd-2-side-8">
+        <%= link_to category.name, "#" %>
+      </div>
     <% end %>
+      <div class="more-category pd-2-side-8">
+        <i class="fas fa-ellipsis-h"></i>
+      </div>
   </div>
-  <div class="toolbox"></div>
+  <div class="toolbox">
+    <i class="fas fa-search"></i>
+    <i class="far fa-user"></i>
+  </div>
 </header>

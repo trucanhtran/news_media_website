@@ -19,8 +19,51 @@
 html {
   scroll-behavior: smooth;
   font-size: 15px;
+  font-family: sans-serif, Arial, Helvetica;
 }
 
-.logo {
-  height: 60px;
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.logo img {
+  width: 100px;
+}
+.logo span {
+  font-size: 12px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.pd-bottom-4 {
+  padding-bottom: 4px;
+}
+.pd-bottom-8 {
+  padding-bottom: 8px;
+}
+
+.pd-2-side {
+  padding: 0 80px;
+}
+
+.pd-2-side-8 {
+  padding: 0 8px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-12 {
+  margin-top: 12px;
 }
