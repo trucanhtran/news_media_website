@@ -23,12 +23,12 @@ class Ngoisao
         puts "Error: #{link}"
       end
     end
-    byebug
   end
 
   def collect_category(raw_home_page)
     arr_category = []
-    raw_home_page.css("#main_menu_new li").each do |link|
+    raw_home_page.css("#main_menu_new li").each.with_index do |link, index|
+      next if index == 0
       begin
         category_link = @url + link.css("a").first['href']
         category_name = link.css("a").first['title']
@@ -37,7 +37,7 @@ class Ngoisao
         puts "Error category here: #{link}"
       end
     end
-  arr_category
+    arr_category
   end
 
   def get_product_links(current_category)
