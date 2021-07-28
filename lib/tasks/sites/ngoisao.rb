@@ -18,7 +18,7 @@ class Ngoisao
 
     arr_category.each do |link|
       begin
-        get_product_links(link[:category_link])
+        get_product_links(link[:category_link], link[:category_name])
       rescue
         puts "Error: #{link}"
       end
@@ -40,9 +40,23 @@ class Ngoisao
     arr_category
   end
 
-  def get_product_links(current_category)
+  def get_product_links(current_category_link, current_category_name)
+    category = Category.find_or_create_by(name: current_category_name)
     arr_product_list = []
-    document = using_nokogiri(current_category)
+    document = using_nokogiri(current_category_link)
+    document.css(".art_item").each do |link|
+      begin
+        product_link = link.css('.content .title_news a').first['href']
+        arr_product_list << {product_link: product_link}
+      rescue
+        puts "Error get product link here: #{product_link}"
+      end
+    end
+    p arr_product_list
+  end
+
+  def get_product_details(current_product_thumbnail, current_product_title, current_product_links)
+    document = using_nokogiri(current_category_link)
   end
 
 end
