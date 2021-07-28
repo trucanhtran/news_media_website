@@ -49,6 +49,10 @@ class ZingNews
       begin
         product_link = @url + link.css(".article-title a").first['href']
         product_thumbnail = link.css(".article-thumbnail a img").first['src']
+        if product_thumbnail.present?
+          byebug
+          product_thumbnail = link.css(".article-thumbnail a img").first['data-src']
+        end
         arr_product_list << {product_link: product_link, product_thumbnail: product_thumbnail}
       rescue
         puts "Error: #{link}"
