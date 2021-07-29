@@ -18,7 +18,8 @@ class Ngoisao
 
     arr_category.each do |link|
       begin
-        get_product_links(link[:category_link], link[:category_name])
+        category_link = link[:category_link]
+        get_product_links(category_link, link[:category])
       rescue
         puts "Error: #{link}"
       end
@@ -32,30 +33,37 @@ class Ngoisao
       begin
         category_link = @url + link.css("a").first['href']
         category_name = link.css("a").first['title']
-        arr_category << {category_link: category_link, category_name: category_name}
+        category = Category.find_or_create_by(name: category_name)
+        arr_category << {category_link: category_link, category: category}
       rescue
-        puts "Error category here: #{link}"
+        puts "Error category here: #{category_link}"
       end
     end
     arr_category
-  end
+   end
 
-  def get_product_links(current_category_link, current_category_name)
-    category = Category.find_or_create_by(name: current_category_name)
+  def get_product_links(current_category_link, current_category)
     arr_product_list = []
     document = using_nokogiri(current_category_link)
-    document.css(".art_item").each do |link|
+    document.css(".art_item .content .title_news").each do |link|
       begin
-        product_link = link.css('.content .title_news a').first['href']
+        product_link = link.css('a').first['href']
         arr_product_list << {product_link: product_link}
       rescue
         puts "Error get product link here: #{product_link}"
       end
     end
-    p arr_product_list
+    arr_product_list.each do |link|
+      begin
+        byebug
+        get_product_details(link[:product_link], current_category)
+      rescue
+        puts "Error product here: #{link[:product_link]}"
+      end
+    end
   end
 
-  def get_product_details(current_product_thumbnail, current_product_title, current_product_links)
+  def get_product_details(current_product_link, current_category)
     document = using_nokogiri(current_category_link)
   end
 
