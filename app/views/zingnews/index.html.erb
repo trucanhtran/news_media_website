@@ -9,10 +9,10 @@
         <% @products.shuffle.each do |product| %>
           <article class="article-item mt-8 pd-bottom-8">
             <div class="article-thumnail">
-              <img src="<%= product.thumbnail%>" width="150px" >
+              <img src="<%= product.thumbnail%>" width="100px" >
             </div>
             <div class="article-title pd-2-side-8">
-              <%= product.title %>
+              <%=link_to product.title, "#" %>
             </div>
           </article>
         <% end %>
@@ -21,13 +21,15 @@
       <div class="article-list flex-row">
         <div class="large-article-item mt-8">
           <div class="large-article-thumbnail">
-            <%=image_tag @hot_product.thumbnail %>
+            <%=link_to (image_tag @hot_product.thumbnail), "#" %>
           </div>
-          <div class="large-article-title pd-2-side-8">
-            <%= @hot_product.title %>
+          <div class="large-article-title">
+            <%=link_to @hot_product.title, "#" %>
           </div>
           <div class="large-article-description">
-            <%= @hot_product.description %>
+            <%=link_to @hot_product.description, "#" %>
+          </div>
+          <div class="large-article-content">
           </div>
         </div>
         <div class="article-list flex-column">
@@ -35,10 +37,10 @@
             <% @hot_products.each do |product| %>
               <div class="m-article-item mt-12 flex-column">
                 <div class="m-article-thumbnail">
-                  <%=image_tag product.thumbnail %>
+                  <%=link_to (image_tag product.thumbnail), "#" %>
                 </div>
-                <div class="m-article-title pd-2-side-8" >
-                  <%= product.title %>
+                <div class="m-article-title" >
+                  <%=link_to product.title, "#" %>
                 </div>
               </div>
             <% end %>
@@ -49,7 +51,58 @@
   </section>
 </div>
 
-<div class="page-wrapper"></div>
+<div class="page-wrapper">
+  <section class="section">
+    <header class="section-title">
+      <h3 class="title">
+        <%= link_to 'Books', category_path(@book.id, @book.name) %>
+      </h3>
+    </header>
+    <div class="section-content flex-row mt-12">
+      <% @book_products.each do |product| %>
+        <article class="box-article-item flex-column mg-2-side-8">
+          <div class="box-article-thumbnail">
+            <img src="<%= product.thumbnail %>" width="200px">
+          </div>
+          <div class="box-article-title pd-2-side-8">
+            <%=link_to product.title, "#"%>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<section id="id_section_latest" class="section mt-12">
+  <header>
+    <h3>Dành riêng cho bạn</h3>
+  </header>
+  <div class="article-list flex-column pd-2-side">
+    <% @latest_products.each do |product| %>
+      <article class="latest-article-item flex-row mt-12">
+        <div class="latest-article-thumbnail  pd-botttom-8">
+          <img src="<%= product.thumbnail%>", width="200px">
+        </div>
+        <div class="latest-article-content flex-column pl-12">
+          <div class="latest-article-title">
+            <%=link_to product.title, "#" %>
+          </div>
+          <div class="article-time mt-12 flex-row">
+            <div class="article-time-upload">
+               giờ trước
+            </div>
+            <div class="article-category pd-2-side-8">
+              <%= product.category.name %>
+            </div>
+          </div>
+          <div class="latest-article-description mt-12">
+            <%= product.description %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
 
 <div id="maybemiss" class="page-wrapper">
   Tin nổi bật 48h
