@@ -1,11 +1,16 @@
 module ApplicationHelper
-
-  def get_time(product_id)
-    latest_product = Product.find_by(id: params[:product_id])
-    latest_time = latest_product.updated_at.strftime("%H")
-    current_time = Time.now.strftime("%H")
-    time = current_time - latest_time
-    return time
+  def group(product_id)
+    html = "".html_safe
+    arr_content = []
+    product = Product.find_by(id: product_id)
+    html << product.content.squish
+    html
   end
 
+  def get_time(product_id)
+    product = Product.find_by(id: product_id)
+    updated_time = product.updated_at.strftime("%H")
+    time = Time.now.strftime("%H").to_i - updated_time.to_i
+    return time.to_s
+  end
 end

@@ -9,10 +9,10 @@
         <% @products.shuffle.each do |product| %>
           <article class="article-item mt-8 pd-bottom-8">
             <div class="article-thumnail">
-              <img src="<%= product.thumbnail%>" width="100px" >
+              <%=link_to (image_tag product.thumbnail == nil ? @no_image : product.thumbnail, width: '100px'), show_product_path(product.title) %>
             </div>
             <div class="article-title pd-2-side-8">
-              <%=link_to product.title, "#" %>
+              <%=link_to product.title, show_product_path(product.title) %>
             </div>
           </article>
         <% end %>
@@ -21,7 +21,7 @@
       <div class="article-list flex-row">
         <div class="large-article-item mt-8">
           <div class="large-article-thumbnail">
-            <%=link_to (image_tag @hot_product.thumbnail), "#" %>
+            <%=link_to (image_tag @hot_product.thumbnail == nil ? @no_image : @hot_product.thumbnail), "#" %>
           </div>
           <div class="large-article-title">
             <%=link_to @hot_product.title, "#" %>
@@ -37,7 +37,10 @@
             <% @hot_products.each do |product| %>
               <div class="m-article-item mt-12 flex-column">
                 <div class="m-article-thumbnail">
-                  <%=link_to (image_tag product.thumbnail), "#" %>
+                  <%=link_to (image_tag product.thumbnail == nil ?
+                    @no_image
+                    : product.thumbnail
+                  ), "#" %>
                 </div>
                 <div class="m-article-title" >
                   <%=link_to product.title, "#" %>
@@ -62,7 +65,7 @@
       <% @book_products.each do |product| %>
         <article class="box-article-item flex-column mg-2-side-8">
           <div class="box-article-thumbnail">
-            <img src="<%= product.thumbnail %>" width="200px">
+            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px') %>
           </div>
           <div class="box-article-title pd-2-side-8">
             <%=link_to product.title, "#"%>
@@ -81,7 +84,7 @@
     <% @latest_products.each do |product| %>
       <article class="latest-article-item flex-row mt-12">
         <div class="latest-article-thumbnail  pd-botttom-8">
-          <img src="<%= product.thumbnail%>", width="200px">
+          <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px') %>
         </div>
         <div class="latest-article-content flex-column pl-12">
           <div class="latest-article-title">
@@ -89,7 +92,7 @@
           </div>
           <div class="article-time mt-12 flex-row">
             <div class="article-time-upload">
-               giờ trước
+              <%= get_time(product.id) %> giờ trước
             </div>
             <div class="article-category pd-2-side-8">
               <%= product.category.name %>

@@ -1,0 +1,17 @@
+<%= render 'header' %>
+
+<div class="page-wrapper">
+  <article>
+    <header class="the-article-header">
+      <div class="the-article-category"><%= @product.category.name %></div>
+      <div class="the-article-title"><%= @product.title %></div>
+      <div class="the-article-meta"></div>
+    </header>
+    <section class="main">
+      <div class="the-article-summary"><%= @product.description %></div>
+      <div class="the-article-body"><%= group(@product.id) %></div>
+    </section>
+  </article>
+</div>
+
+<%= render 'footer' %>
