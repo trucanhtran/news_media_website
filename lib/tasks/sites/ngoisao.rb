@@ -55,16 +55,36 @@ class Ngoisao
     end
     arr_product_list.each do |link|
       begin
-        byebug
         get_product_details(link[:product_link], current_category)
       rescue
+        byebug
         puts "Error product here: #{link[:product_link]}"
       end
     end
   end
 
   def get_product_details(current_product_link, current_category)
-    document = using_nokogiri(current_category_link)
+    document = using_nokogiri(current_product_link)
+    byebug
+    product_title = document.at_css("h1.title-detail").content
+    byebug
+    product_description = document.at_css("p.lead").content
+    if product_description == nil
+      product_description = document.at_css("p.description").content
+    end
+    byebug
+    product_content = document.css(".fck_detail").first.inner_html
+    byebug
+    product = Product.find_by(title: product_title)
+    if product.present?
+      product.description = product_description
+      product.content = product_content
+      product.save
+      puts "Update product: #{product.title}"
+    else
+      new_product = current_category.products.create(title: product_title, description: product_description, content: product_content)
+      puts "Create product: #{product.title}"
+    end
   end
 
 end
