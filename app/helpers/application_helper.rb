@@ -1,10 +1,7 @@
 module ApplicationHelper
-  def group(product_id)
-    html = "".html_safe
-    arr_content = []
-    product = Product.find_by(id: product_id)
-    html << product.content.squish
-    html
+  def display_content(content)
+    return "" if content.nil?
+    content.gsub("data-src", "zzz").gsub("src", "src1").gsub("zzz", "src").html_safe
   end
 
   def get_time(product_id)

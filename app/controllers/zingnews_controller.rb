@@ -29,7 +29,7 @@ class ZingnewsController < ApplicationController
   end
 
   def show_product
-    @product = Product.find_by(title: params[:title])
+    @product = Product.friendly.find_by(slug: params[:id])
   end
 
   private

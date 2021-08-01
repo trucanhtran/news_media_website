@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   # Category
   get ':id/:name', to: 'zingnews#show_category', as: 'category'
   #Article
-  get ':title', to: 'zingnews#show_product', as: 'show_product'
+  get ':id', to: 'zingnews#show_product', as: 'show_product'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

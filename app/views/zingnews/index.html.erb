@@ -9,10 +9,10 @@
         <% @products.shuffle.each do |product| %>
           <article class="article-item mt-8 pd-bottom-8">
             <div class="article-thumnail">
-              <%=link_to (image_tag product.thumbnail == nil ? @no_image : product.thumbnail, width: '100px'), show_product_path(product.title) %>
+              <%=link_to (image_tag product.thumbnail == nil ? @no_image : product.thumbnail, width: '100px'), show_product_path(product.slug) %>
             </div>
             <div class="article-title pd-2-side-8">
-              <%=link_to product.title, show_product_path(product.title) %>
+              <%=link_to product.title, show_product_path(product.slug) %>
             </div>
           </article>
         <% end %>
@@ -21,13 +21,13 @@
       <div class="article-list flex-row">
         <div class="large-article-item mt-8">
           <div class="large-article-thumbnail">
-            <%=link_to (image_tag @hot_product.thumbnail == nil ? @no_image : @hot_product.thumbnail), "#" %>
+            <%=link_to (image_tag @hot_product.thumbnail == nil ? @no_image : @hot_product.thumbnail), show_product_path(@hot_product.slug) %>
           </div>
           <div class="large-article-title">
-            <%=link_to @hot_product.title, "#" %>
+            <%=link_to @hot_product.title, show_product_path(@hot_product.slug) %>
           </div>
           <div class="large-article-description">
-            <%=link_to @hot_product.description, "#" %>
+            <%=link_to @hot_product.description, show_product_path(@hot_product.slug) %>
           </div>
           <div class="large-article-content">
           </div>
@@ -40,10 +40,10 @@
                   <%=link_to (image_tag product.thumbnail == nil ?
                     @no_image
                     : product.thumbnail
-                  ), "#" %>
+                  ), show_product_path(product.slug) %>
                 </div>
                 <div class="m-article-title" >
-                  <%=link_to product.title, "#" %>
+                  <%=link_to product.title, show_product_path(product.slug) %>
                 </div>
               </div>
             <% end %>
@@ -65,10 +65,10 @@
       <% @book_products.each do |product| %>
         <article class="box-article-item flex-column mg-2-side-8">
           <div class="box-article-thumbnail">
-            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px') %>
+            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
           </div>
           <div class="box-article-title pd-2-side-8">
-            <%=link_to product.title, "#"%>
+            <%=link_to product.title, show_product_path(product.slug)%>
           </div>
         </article>
       <% end %>
@@ -84,22 +84,22 @@
     <% @latest_products.each do |product| %>
       <article class="latest-article-item flex-row mt-12">
         <div class="latest-article-thumbnail  pd-botttom-8">
-          <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px') %>
+          <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
         </div>
         <div class="latest-article-content flex-column pl-12">
           <div class="latest-article-title">
-            <%=link_to product.title, "#" %>
+            <%=link_to product.title, show_product_path(product.slug) %>
           </div>
           <div class="article-time mt-12 flex-row">
             <div class="article-time-upload">
-              <%= get_time(product.id) %> giờ trước
+              <%=link_to product.updated_at, show_product_path(product.slug) %> giờ trước
             </div>
             <div class="article-category pd-2-side-8">
-              <%= product.category.name %>
+              <%=link_to product.category.name, show_product_path(product.slug) %>
             </div>
           </div>
           <div class="latest-article-description mt-12">
-            <%= product.description %>
+            <%=link_to product.description, show_product_path(product.slug) %>
           </div>
         </div>
       </article>
