@@ -10,7 +10,15 @@ import "channels"
 //add fontawesome
 import "@fortawesome/fontawesome-free/css/all.css"
 
+require("jquery");
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(document).ready(function(){
+  $(document).on("click", "#id_search", function(){
+    alert("Hello")
+  })
+})
