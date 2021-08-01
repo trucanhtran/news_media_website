@@ -48,7 +48,10 @@ class ZingNews
     document.css(".section-content .article-list .article-item").each do |link|
       begin
         product_link = @url + link.css(".article-title a").first['href']
-        product_thumbnail = link.css(".article-thumbnail a img").first['src']
+        product_thumbnail= link.css(".article-thumbnail a img").first['data-src']
+        unless product_thumbnail.present?
+          product_thumbnail= link.css(".article-thumbnail a img").first['src']
+        end
         arr_product_list << {product_link: product_link, product_thumbnail: product_thumbnail}
       rescue
         puts "Error: #{link}"
@@ -58,28 +61,31 @@ class ZingNews
     arr_product_list.each do |link|
       begin
         current_product = link[:product_link]
-        get_product_details(current_product, category)
+        product_thumbnail = link[:product_thumbnail]
+        get_product_details(current_product,product_thumbnail, category)
       rescue
         puts "Error: #{link}"
       end
     end
   end
 
-  def get_product_details(current_product, category)
+  def get_product_details(current_product,product_thumbnail, category)
     arr_product_detail = []
     document = using_nokogiri(current_product)
     title = document.css(".the-article-header .the-article-title").first.content
     # author = document.at_css(".the-article-author a")
     description = document.css(".main .the-article-summary").first.content
     content = document.css(".main .the-article-body").first.inner_html
+    thumbnail = product_thumbnail
     product = Product.find_by(title: title)
     if product.present?
       product.description = description
       product.content = content
+      product.thumbnail = thumbnail
       product.save
       p product.content
     else
-      new_product = category.products.create(title: title, description: description, content: content)
+      new_product = category.products.create(title: title, description: description, content: content, thumbnail: thumbnail)
       p new_product.content
     end
   end

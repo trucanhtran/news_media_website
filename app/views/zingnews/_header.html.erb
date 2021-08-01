@@ -1,0 +1,23 @@
+<header id="id_header" class="pd-2-side">
+  <div class="logo flex-column header-logo  pd-bottom-4 ">
+    <%=link_to image_tag('https://static-znews.zadn.vn/images/logo-zing-home.svg'), root_path %>
+    <span>Tri thức trực tuyến</span>
+  </div>
+  <div class="category-menu flex-row">
+    <% @categories.each do |category| %>
+      <div class="category-name pd-2-side-8">
+        <%= link_to category.name, category_path(category.id, category.name) %>
+      </div>
+    <% end %>
+      <div class="more-category pd-2-side-8">
+        <i class="fas fa-ellipsis-h"></i>
+      </div>
+  </div>
+  <div class="toolbox flex-row">
+    <div class="article-search">
+    <i class="fas fa-search"></i>
+      <input type="text" value="keyword" placeholder="Nhập từ khóa..." class="article-search-bar" id="id_search_bar">
+    </div>
+    <i class="far fa-user" id="id_search"></i>
+  </div>
+</header>

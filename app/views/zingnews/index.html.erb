@@ -1,0 +1,122 @@
+<%= render 'header' %>
+
+<div class="page-wrapper pd-2-side">
+  <section class="section flex-row"></section>
+
+  <section id="id-section-featured"class="section">
+    <div class="section-content flex-row">
+      <div class="article-list flex-column">
+        <% @products.shuffle.each do |product| %>
+          <article class="article-item mt-8 pd-bottom-8">
+            <div class="article-thumnail">
+              <%=link_to (image_tag product.thumbnail == nil ? @no_image : product.thumbnail, width: '100px'), show_product_path(product.slug) %>
+            </div>
+            <div class="article-title pd-2-side-8">
+              <%=link_to product.title, show_product_path(product.slug) %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+
+      <div class="article-list flex-row">
+        <div class="large-article-item mt-8">
+          <div class="large-article-thumbnail">
+            <%=link_to (image_tag @hot_product.thumbnail == nil ? @no_image : @hot_product.thumbnail), show_product_path(@hot_product.slug) %>
+          </div>
+          <div class="large-article-title">
+            <%=link_to @hot_product.title, show_product_path(@hot_product.slug) %>
+          </div>
+          <div class="large-article-description">
+            <%=link_to @hot_product.description, show_product_path(@hot_product.slug) %>
+          </div>
+          <div class="large-article-content">
+          </div>
+        </div>
+        <div class="article-list flex-column">
+          <div class="article-list">
+            <% @hot_products.each do |product| %>
+              <div class="m-article-item mt-12 flex-column">
+                <div class="m-article-thumbnail">
+                  <%=link_to (image_tag product.thumbnail == nil ?
+                    @no_image
+                    : product.thumbnail
+                  ), show_product_path(product.slug) %>
+                </div>
+                <div class="m-article-title" >
+                  <%=link_to product.title, show_product_path(product.slug) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page-wrapper">
+  <section class="section">
+    <header class="section-title">
+      <h3 class="title">
+        <%= link_to 'Books', category_path(@book.id, @book.name) %>
+      </h3>
+    </header>
+    <div class="section-content flex-row mt-12">
+      <% @book_products.each do |product| %>
+        <article class="box-article-item flex-column mg-2-side-8">
+          <div class="box-article-thumbnail">
+            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
+          </div>
+          <div class="box-article-title pd-2-side-8">
+            <%=link_to product.title, show_product_path(product.slug)%>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<section id="id_section_latest" class="section mt-12">
+  <header>
+    <h3>Dành riêng cho bạn</h3>
+  </header>
+  <div class="article-list flex-column pd-2-side">
+    <% @latest_products.each do |product| %>
+      <article class="latest-article-item flex-row mt-12">
+        <div class="latest-article-thumbnail  pd-botttom-8">
+          <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
+        </div>
+        <div class="latest-article-content flex-column pl-12">
+          <div class="latest-article-title">
+            <%=link_to product.title, show_product_path(product.slug) %>
+          </div>
+          <div class="article-time mt-12 flex-row">
+            <div class="article-time-upload">
+              <%=link_to product.updated_at, show_product_path(product.slug) %> giờ trước
+            </div>
+            <div class="article-category pd-2-side-8">
+              <%=link_to product.category.name, show_product_path(product.slug) %>
+            </div>
+          </div>
+          <div class="latest-article-description mt-12">
+            <%=link_to product.description, show_product_path(product.slug) %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
+
+<div id="maybemiss" class="page-wrapper">
+  Tin nổi bật 48h
+</div>
+
+<section class="session session-magazine">
+  Magazine
+</section>
+
+<div class="page-wrapper">
+  Categories & Videos
+</div>
+
+<%= render 'footer' %>

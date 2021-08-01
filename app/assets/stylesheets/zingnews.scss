@@ -1,0 +1,267 @@
+// Place all the styles related to the Zingnews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Header */
+
+#id_header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  min-height: 50px;
+  align-items: center;
+  margin-top: -8px;
+  left: 0;
+  right: 0;
+}
+
+.header-logo {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.header-logo span {
+  top: 28px;
+  position: absolute;
+}
+
+.category-menu {
+  font-weight: bold;
+}
+
+.category-name,
+.more-category {
+  line-height: 3;
+  z-index: 1;
+  max-height: 46px;
+}
+
+.category-name:hover a {
+  color: #04b2f7;
+}
+
+.category-name:hover {
+  border-bottom: 4px solid #04b2f7;
+}
+
+.toolbox .far {
+  font-size: 28px;
+  color: #888888;
+  font-weight: 100;
+}
+
+.toolbox .fas {
+  font-size: 28px;
+  color: #888888;
+}
+
+.article-search {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.article-search-bar {
+  position: absolute;
+  top: 0;
+  z-index: 1 !important;
+  display: none;
+}
+
+.article-search i {
+  position: relative;
+  z-index: 2 !important;
+  padding-right: 4px;
+}
+
+/*Content*/
+
+.page-wrapper {
+  margin-top: 16px;
+}
+
+/*Featured Article*/
+
+.article-item {
+  border-bottom: 1px solid #ccc;
+  margin-right: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.article-thumbnail {
+  flex-grow: 1;
+}
+
+.article-title {
+  flex-grow: 1;
+  font-weight: bold;
+  width: 200px;
+}
+
+.article-thumbnail img {
+  object-fit: cover;
+}
+
+.large-article-item {
+  padding-right: 40px;
+}
+
+.large-article-thumbnail img {
+  object-fit: cover;
+  width: 500px;
+}
+
+.large-article-title {
+  font-weight: bold;
+  font-size: 30px;
+  width: 500px;
+}
+
+.large-article-description {
+  width: 500px;
+}
+
+.m-article-thumbnail img {
+  width: 250px;
+  object-fit: cover;
+}
+
+.m-article-title {
+  font-weight: bold;
+  width: 250px;
+}
+
+/* Book */
+.section-title {
+  border-bottom: 1px solid #ccc;
+  line-height: 1.5;
+  position: relative;
+}
+
+.section-title h3 {
+  margin: 12px;
+  line-height: 1.5;
+}
+
+.section-title h3:before {
+  content: "";
+  background-color: #dd3333;
+  transform: skew(-20deg);
+  position: absolute;
+  width: 6px;
+  left: 5px;
+  top: 2px;
+  bottom: 17px;
+}
+
+.section-title h3:last-child {
+  padding-left: 12px;
+  text-transform: uppercase;
+}
+
+.box-article-item {
+  background-color: #f7f7f7;
+}
+
+.box-article-thumbnail img {
+  max-height: 120px;
+  object-fit: cover;
+}
+
+.box-article-title {
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+/*Latest */
+
+#id_section_latest h3 {
+  display: none;
+}
+
+.latest-article-item {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 12px;
+  width: 60%;
+}
+
+.latest-article-content {
+}
+
+.latest-article-title {
+  font-weight: bold;
+}
+
+.article-time .article-time-upload a,
+.article-time-upload {
+  color: #888888;
+}
+
+.latest-article-description a {
+  color: #888888;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Footer */
+p {
+  margin: 0 !important;
+  color: #888888;
+  font-size: 12px;
+}
+
+#id_footer {
+  background-color: #f7f7f7;
+}
+
+.container-footer {
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/*Products*/
+
+.the-article {
+  align-items: center;
+  line-height: 1.5;
+  font-size: 15px !important;
+}
+
+.the-article-title {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 32px;
+  width: 500px;
+  text-align: center;
+}
+
+.the-article-header {
+  align-items: center;
+}
+
+.main .the-article-summary {
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  font-size: large;
+  font-weight: bold;
+}
+
+.the-article-body {
+  align-items: flex-start;
+  max-width: 800px;
+  line-height: 1.5;
+  font-size: 15px !important;
+}
+
+.the-article-body img {
+  object-fit: cover;
+  max-width: 800px;
+  text-align: center !important;
+}
