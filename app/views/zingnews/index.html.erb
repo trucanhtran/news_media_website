@@ -61,17 +61,22 @@
         <%= link_to 'Books', category_path(@book.id, @book.name) %>
       </h3>
     </header>
-    <div class="section-content flex-row mt-12">
-      <% @book_products.each do |product| %>
-        <article class="box-article-item flex-column mg-2-side-8">
-          <div class="box-article-thumbnail">
-            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
-          </div>
-          <div class="box-article-title pd-2-side-8">
-            <%=link_to product.title, show_product_path(product.slug)%>
-          </div>
-        </article>
-      <% end %>
+    <div class="swiper-container mySwiper">
+      <div class="section-content flex-row mt-12 swiper-wrapper">
+        <% @book_products.each do |product| %>
+          <article class="box-article-item flex-column mg-2-side-8 swiper-slide">
+            <div class="box-article-thumbnail">
+              <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
+            </div>
+            <div class="box-article-title pd-2-side-8 mt-8 pd-bottom-4">
+              <%=link_to product.title, show_product_path(product.slug)%>
+            </div>
+          </article>
+        <% end %>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 </div>
