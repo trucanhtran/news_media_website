@@ -55,7 +55,7 @@
 </div>
 
 <div class="page-wrapper">
-  <section class="section">
+  <section class="section pd-2-side">
     <header class="section-title">
       <h3 class="title">
         <%= link_to 'Books', category_path(@book.id, @book.name) %>
@@ -121,7 +121,19 @@
 </section>
 
 <div class="page-wrapper">
-  Categories & Videos
+  <section class="section pd-2-side">
+    <section class="section-content category flex-row">
+      <% @categories_all.each do |category| %>
+        <div class="box-category" id="<%=category.slug%>">
+          <header class="section-title">
+            <h3 class="title">
+              <%=link_to category.name, category_path(category.id, category.name) %>
+            </h3>
+          </header>
+        </div>
+      <% end %>
+    </section>
+  </section>
 </div>
 
 <%= render 'footer' %>
