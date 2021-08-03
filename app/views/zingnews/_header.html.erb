@@ -18,9 +18,8 @@
     <i class="fas fa-search"></i>
       <input type="text" value="keyword" placeholder="Nhập từ khóa..." class="article-search-bar" id="id_search_bar">
     </div>
-     <%= link_to 'a',login_path %>
-    <i class="far fa-user" id="id_search">
-
-    </i>
+    <%= link_to login_path do %>
+      <i class="far fa-user"></i>
+    <% end %>
   </div>
 </header>
