@@ -18,6 +18,14 @@
     <i class="fas fa-search"></i>
       <input type="text" value="keyword" placeholder="Nhập từ khóa..." class="article-search-bar" id="id_search_bar">
     </div>
-    <i class="far fa-user" id="id_search"></i>
+    <% if current_user.present? %>
+      <%= link_to show_user_path(@user.id) do %>
+        <i class="far fa-user"></i>
+      <% end %>
+    <% else %>
+      <%= link_to login_path do %>
+        <i class="far fa-user"></i>
+      <% end %>
+    <% end %>
   </div>
 </header>

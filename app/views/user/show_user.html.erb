@@ -1,0 +1,7 @@
+<div class="user-form">
+  <%= form_with(url: logout_path) do |form| %>
+    <div class="group-btn">
+      <%= form.submit "Đăng xuất", data: {confirm: 'Bạn muốn đăng xuất?'}, method: :delete %>
+    </div>
+  <% end %>
+</div>
