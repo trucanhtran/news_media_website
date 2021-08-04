@@ -97,7 +97,7 @@
           </div>
           <div class="article-time mt-12 flex-row">
             <div class="article-time-upload">
-              <%=link_to product.updated_at, show_product_path(product.slug) %> giờ trước
+              <%=link_to get_time(product.updated_at), show_product_path(product.slug) %> giờ trước
             </div>
             <div class="article-category pd-2-side-8">
               <%=link_to product.category.name, show_product_path(product.slug) %>
