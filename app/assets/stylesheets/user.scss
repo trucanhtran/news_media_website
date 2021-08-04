@@ -1,3 +1,76 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+input:focus {
+  outline: none;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field label {
+  flex-grow: 1;
+  padding-right: 8px;
+}
+
+.field input {
+  border-radius: 20px;
+  border: 1px solid #888888;
+  margin-bottom: 8px;
+  padding: 4px;
+  width: 200px;
+}
+
+.no-account a {
+  text-align: center;
+  justify-items: left;
+}
+
+.no-account a span {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.no-account a span:hover {
+  color: #800088;
+}
+
+.group-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.group-btn button,
+.group-btn input[type="submit"] {
+  width: 100px;
+  background-color: #96baff;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+}
+
+.group-btn input {
+  margin-right: 8px;
+}
+
+.group-btn a {
+  color: #fff;
+}
+
+.group-btn button:hover,
+.group-btn input[type="submit"]:hover {
+  opacity: 0.8;
+}

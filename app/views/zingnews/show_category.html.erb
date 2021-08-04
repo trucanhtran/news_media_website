@@ -1,30 +1,68 @@
-<section id="id_section_latest" class="section mt-12">
-  <header>
-    <h3>Dành riêng cho bạn</h3>
+<div class="page-wrapper pd-2-side">
+  <section class="section" id="category-header">
+    <h1>
+      <%= @category.name %>
+    </h1>
+  </section>
+  <section class="section" id="category-featured">
+    <div class="the-aritcle-list">
+      <div class="section-content flex-row">
+        <div class="the-aritcle-thumbnail">
+          <%=link_to image_tag( @hot_product.thumbnail.present? ? @hot_product.thumbnail : @no_image), show_product_path(@hot_product.slug) %>
+        </div>
+        <div>
+          <div class="the-aritcle-title"><%= link_to @hot_product.title, show_product_path(@hot_product.slug) %></div>
+          <div class="the-aritcle-description"><%= link_to @hot_product.description, show_product_path(@hot_product.slug) %></div>
+        </div>
+      </div>
+      <div class="flex-row the-article-sub-list">
+        <% @hot_products.each do |product| %>
+          <div class="the-article-item">
+            <div class="the-article-sub-thumbnail">
+              <%=link_to image_tag( product.thumbnail.present? ? product.thumbnail : @no_image)%>
+            </div>
+            <div class="the-article-sub-title"><%=link_to product.title, show_product_path(product.slug)  %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page-wrapper pd-2-side">
+  <header class="section-title latest-title">
+    <h3 class="title">
+      Mới Nhất
+    </h3>
   </header>
-  <div class="article-list flex-column pd-2-side">
-    <% @products.each do |product| %>
-      <article class="latest-article-item flex-row mt-12">
-        <div class="latest-article-thumbnail  pd-botttom-8">
-          <img src="<%= product.thumbnail%>", width="200px">
-        </div>
-        <div class="latest-article-content flex-column pl-12">
-          <div class="latest-article-title">
-            <%=link_to product.title, "#" %>
+  <section id="id_section_latest" class="section mt-12">
+    <header>
+      <h3>Dành riêng cho bạn</h3>
+    </header>
+    <div class="article-list flex-column">
+      <% @products.each do |product| %>
+        <article class="latest-article-item flex-row mt-12">
+          <div class="latest-article-thumbnail  pd-botttom-8">
+            <img src="<%= product.thumbnail%>", width="200px">
           </div>
-          <div class="article-time mt-12 flex-row">
-            <div class="article-time-upload">
-               giờ trước
+          <div class="latest-article-content flex-column pl-12">
+            <div class="latest-article-title">
+              <%=link_to product.title, "#" %>
             </div>
-            <div class="article-category pd-2-side-8">
-              <%= product.category.name %>
+            <div class="article-time mt-12 flex-row">
+              <div class="article-time-upload">
+                giờ trước
+              </div>
+              <div class="article-category pd-2-side-8">
+                <%= product.category.name %>
+              </div>
+            </div>
+            <div class="latest-article-description mt-12">
+              <%= product.description %>
             </div>
           </div>
-          <div class="latest-article-description mt-12">
-            <%= product.description %>
-          </div>
-        </div>
-      </article>
-    <% end %>
-  </div>
-</section>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>
