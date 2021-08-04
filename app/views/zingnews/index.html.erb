@@ -55,7 +55,7 @@
 </div>
 
 <div class="page-wrapper">
-  <section class="section">
+  <section class="section pd-2-side">
     <header class="section-title">
       <h3 class="title">
         <%= link_to 'Books', category_path(@book.id, @book.name) %>
@@ -97,7 +97,7 @@
           </div>
           <div class="article-time mt-12 flex-row">
             <div class="article-time-upload">
-              <%=link_to product.updated_at, show_product_path(product.slug) %> giờ trước
+              <%=link_to get_time(product.updated_at), show_product_path(product.slug) %> giờ trước
             </div>
             <div class="article-category pd-2-side-8">
               <%=link_to product.category.name, show_product_path(product.slug) %>
@@ -121,7 +121,19 @@
 </section>
 
 <div class="page-wrapper">
-  Categories & Videos
+  <section class="section pd-2-side">
+    <section class="section-content category flex-row">
+      <% @categories_all.each do |category| %>
+        <div class="box-category" id="<%=category.slug%>">
+          <header class="section-title">
+            <h3 class="title">
+              <%=link_to category.name, category_path(category.id, category.name) %>
+            </h3>
+          </header>
+        </div>
+      <% end %>
+    </section>
+  </section>
 </div>
 
 <%= render 'footer' %>
