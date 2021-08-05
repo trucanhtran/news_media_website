@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'nguoi-dung/:id', to: 'user#show_user', as: 'show_user'
   post 'dang-xuat', to: 'user#logout', as: 'logout'
   #Search
-  post 'tim-kiem', to: 'zingnews#search', as: 'search'
-  get 'show_items', to: 'search_items#show_result', as: 'show_result'
+  post 'search', to: 'zingnews#search', as: 'search'
+  get 'tim-kiem', to: 'search#show_result', as: 'show_result'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

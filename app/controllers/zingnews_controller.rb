@@ -25,7 +25,8 @@ class ZingnewsController < ApplicationController
   def search
     @products = Product.where("lower(title) ? LIKE", "%#{params[:keyword]}%")
     respond_to do |format|
-      format.js {render :show_result}
+      format.html {redirect_to show_result_path}
+      format.js
     end
   end
 
