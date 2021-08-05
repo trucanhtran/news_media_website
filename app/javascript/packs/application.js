@@ -13,6 +13,7 @@ import "@fortawesome/fontawesome-free/css/all.css"
 require("jquery");
 
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

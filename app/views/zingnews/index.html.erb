@@ -1,4 +1,3 @@
-<%= render 'header' %>
 
 <div class="page-wrapper pd-2-side">
   <section class="section flex-row"></section>
@@ -55,23 +54,28 @@
 </div>
 
 <div class="page-wrapper">
-  <section class="section">
+  <section class="section pd-2-side">
     <header class="section-title">
       <h3 class="title">
         <%= link_to 'Books', category_path(@book.id, @book.name) %>
       </h3>
     </header>
-    <div class="section-content flex-row mt-12">
-      <% @book_products.each do |product| %>
-        <article class="box-article-item flex-column mg-2-side-8">
-          <div class="box-article-thumbnail">
-            <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
-          </div>
-          <div class="box-article-title pd-2-side-8">
-            <%=link_to product.title, show_product_path(product.slug)%>
-          </div>
-        </article>
-      <% end %>
+    <div class="swiper-container mySwiper">
+      <div class="section-content flex-row mt-12 swiper-wrapper">
+        <% @book_products.each do |product| %>
+          <article class="box-article-item flex-column mg-2-side-8 swiper-slide">
+            <div class="box-article-thumbnail">
+              <%= link_to (image_tag product.thumbnail==nil ? @no_image : product.thumbnail, width: '200px'), show_product_path(product.slug) %>
+            </div>
+            <div class="box-article-title pd-2-side-8 mt-8 pd-bottom-4">
+              <%=link_to product.title, show_product_path(product.slug)%>
+            </div>
+          </article>
+        <% end %>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
 </div>
@@ -92,7 +96,7 @@
           </div>
           <div class="article-time mt-12 flex-row">
             <div class="article-time-upload">
-              <%=link_to product.updated_at, show_product_path(product.slug) %> giờ trước
+              <%=link_to get_time(product.updated_at), show_product_path(product.slug) %> giờ trước
             </div>
             <div class="article-category pd-2-side-8">
               <%=link_to product.category.name, show_product_path(product.slug) %>
@@ -116,7 +120,17 @@
 </section>
 
 <div class="page-wrapper">
-  Categories & Videos
+  <section class="section pd-2-side">
+    <section class="section-content category flex-row">
+      <% @categories_all.each do |category| %>
+        <div class="box-category" id="<%=category.slug%>">
+          <header class="section-title">
+            <h3 class="title">
+              <%=link_to category.name, category_path(category.id, category.name) %>
+            </h3>
+          </header>
+        </div>
+      <% end %>
+    </section>
+  </section>
 </div>
-
-<%= render 'footer' %>

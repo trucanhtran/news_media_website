@@ -7,7 +7,7 @@
 #id_header {
   position: sticky !important;
   top: 0 !important;
-  z-index: 1 !important;
+  z-index: 3 !important;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
@@ -167,6 +167,7 @@
 
 .box-article-item {
   background-color: #f7f7f7;
+  width: 200px !important;
 }
 
 .box-article-thumbnail img {
@@ -177,6 +178,40 @@
 .box-article-title {
   box-sizing: border-box;
   font-weight: bold;
+}
+
+/*Slide-show*/
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide .box-article-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*Latest */
@@ -209,6 +244,15 @@
   line-height: 1.5;
 }
 
+/*Category*/
+.category {
+  flex-wrap: wrap;
+}
+
+.box-category {
+  margin-right: 80px;
+}
+
 /* Footer */
 p {
   margin: 0 !important;
@@ -217,6 +261,7 @@ p {
 }
 
 #id_footer {
+  margin-top: 12px;
   background-color: #f7f7f7;
 }
 
@@ -225,7 +270,7 @@ p {
   justify-content: space-between;
 }
 
-/*Products*/
+/*Products page*/
 
 .the-article {
   align-items: center;
@@ -264,4 +309,57 @@ p {
   object-fit: cover;
   max-width: 800px;
   text-align: center !important;
+}
+
+/*Category Page*/
+
+#category-header {
+  border-bottom: 2px solid #000;
+  width: 750px;
+}
+
+.the-aritcle-list {
+  margin-top: 16px;
+}
+
+.the-aritcle-thumbnail {
+  margin-right: 8px;
+}
+
+.the-aritcle-thumbnail img {
+  width: 500px;
+  object-fit: cover;
+}
+
+.the-aritcle-title {
+  font-weight: bold;
+  font-size: 20px;
+  width: 250px;
+}
+
+.the-aritcle-description {
+  margin-top: 4px;
+  width: 250px;
+}
+
+.the-aritcle-description a {
+  color: #888888;
+}
+
+.the-article-item {
+  margin-right: 12px;
+}
+
+.the-article-sub-thumbnail img {
+  width: 250px;
+  object-fit: cover;
+}
+
+.the-article-sub-title {
+  width: 250px;
+  font-weight: bold;
+}
+
+.latest-title {
+  width: 700px;
 }

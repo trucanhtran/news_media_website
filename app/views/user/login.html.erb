@@ -1,0 +1,21 @@
+<div class="user-form">
+  <%= form_with(model: @user) do |form| %>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, placeholder: 'Nhập Email' %>
+    </div>
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password, placeholder: 'Nhập password' %>
+    </div>
+    <div class="no-account">
+      <%= link_to signup_path do %>
+        Bạn chưa có tài khoản?
+        <span>Đăng kí ngay</span>
+      <% end %>
+    </div>
+    <div class="group-btn">
+      <%= form.submit 'Đăng nhập' %>
+    </div>
+  <% end %>
+</div>
