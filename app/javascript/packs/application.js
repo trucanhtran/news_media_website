@@ -18,26 +18,26 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-function getSearchBar(searchBar, searchWidth){
-  const isClosed = searchBar.clientWidth === searchWidth;
-  console.log(isClosed);
-  if (isClosed){
-    searchBar.style.width = "200px";
-  }
-  else {
-    searchBar.style.width = "4px";
-  }
+// function getSearchBar(searchBar, searchWidth){
+//   const isClosed = searchBar.clientWidth === searchWidth;
+//   console.log(isClosed);
+//   if (isClosed){
+//     searchBar.style.width = "200px";
+//   }
+//   else {
+//     searchBar.style.width = "4px";
+//   }
 
-}
+// }
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-var searchBar = document.getElementById("id_search_bar")
-var searchWidth = searchBar.clientWidth
+// var searchBar = document.getElementById("id_search_bar")
+// var searchWidth = searchBar.clientWidth
 
-  $(document).on("click", "#id_search", function(){
+//   $(document).on("click", "#id_search", function(){
 
-    getSearchBar(searchBar, searchWidth);
-  })
-})
+//     getSearchBar(searchBar, searchWidth);
+//   })
+// })
