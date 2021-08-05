@@ -32,10 +32,10 @@ class ZingnewsController < ApplicationController
     @product = Product.friendly.find_by(slug: params[:id])
   end
 
-  def search_keyword
+  def search
     @products = Product.where("lower(title) ? LIKE", "%#{params[:keyword]}%")
     respond_to do |format|
-      format.js
+      format.js {render :show_result}
     end
   end
 
