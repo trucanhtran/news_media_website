@@ -1,9 +1,9 @@
 module UserHelper
+  def is_login?
+    session[:user_id].present?
+  end
+
   def current_user
-    if session[:user_id].present?
-      @user = User.find_by(id: session[:user_id])
-    else
-      nil
-    end
+    session[:user_id].present? ? User.find_by(id: session[:user_id]) : nil
   end
 end

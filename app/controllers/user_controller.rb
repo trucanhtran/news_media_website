@@ -6,10 +6,14 @@ class UserController < ApplicationController
   end
 
   def check_user
-    @user = User.find_by(email: session_params[:email])
-    if @user.present? && @user.authenticate(session_params[:password])
-      session[:user_id] = @user.id
-      redirect_to root_path
+    user = User.find_by(email: session_params[:email])
+    if user.present? && user.authenticate(session_params[:password])
+      session[:user_id] = user.id
+      if user.is_admin
+        redirect_to admin_dash_board_path
+      else
+        redirect_to root_path
+      end
     else
       render :login
     end

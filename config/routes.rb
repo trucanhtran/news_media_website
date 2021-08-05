@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'dash_board', to: 'dash_board#index'
+  end
   root to: 'zingnews#index'
   # Category
   get 'category/:id/:name', to: 'zingnews#show_category', as: 'category'
