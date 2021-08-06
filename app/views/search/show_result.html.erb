@@ -1,0 +1,15 @@
+<div id="id_search_page">
+
+  <%= render "zingnews/header" %>
+
+  <form>
+    <input type="text" name="keyword" placeholder="Nhập từ khóa" id="id_search_input">
+    <input type="submit" name="search" id="id_search_btn">
+  </form>
+
+  <div id="id_article_list">
+    <% @products.each do |product| %>
+      <%= product.title %>
+    <% end %>
+  </div>
+</div>

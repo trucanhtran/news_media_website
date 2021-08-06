@@ -11,6 +11,7 @@ import "channels"
 import "@fortawesome/fontawesome-free/css/all.css"
 
 require("jquery");
+require("packs/search");
 
 
 

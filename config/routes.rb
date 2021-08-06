@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post 'dang-xuat', to: 'user#logout', as: 'logout'
   #Search
   get 'tim-kiem', to: 'search#show_result', as: 'show_result'
+  post 'search_items', to: 'search#search_items'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
