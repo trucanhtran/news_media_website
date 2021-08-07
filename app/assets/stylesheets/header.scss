@@ -82,6 +82,7 @@
   z-index: 1 !important;
   width: 30px;
   transition: width 0.35s ease-in-out;
+  -webkit-transition: width 0.35s ease-in-out;
 }
 
 .article-search-bar:focus {
