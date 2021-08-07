@@ -17,7 +17,6 @@
     <div class="article-search">
       <%= form_with(url: show_result_path, method: :get) do |form| %>
         <%= form.text_field :keyword, placeholder: "Nhập từ khóa...", class: 'article-search-bar', id: 'id_search_bar' %>
-        <%= form.submit 'Tìm kiếm' %>
         <i class="fas fa-search"  id="id_search"></i>
       <% end %>
     </div>

@@ -6,10 +6,6 @@ class SearchController < ApplicationController
     @products = Product.where("lower(title) LIKE ?", "%#{params[:keyword]}%").limit(15)
   end
 
-  def search_items
-    @products = Product.where("lower(title) LIKE ?", "%#{params[:keyword]}%").limit(15)
-  end
-
   private
 
   def get_data
