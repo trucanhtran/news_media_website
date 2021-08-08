@@ -1,0 +1,40 @@
+/*Products page*/
+
+.the-article {
+  align-items: center;
+  line-height: 1.5;
+  font-size: 15px !important;
+}
+
+.the-article-title {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 32px;
+  width: 500px;
+  text-align: center;
+}
+
+.the-article-header {
+  align-items: center;
+}
+
+.main .the-article-summary {
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  font-size: large;
+  font-weight: bold;
+}
+
+.the-article-body {
+  align-items: flex-start;
+  max-width: 800px;
+  line-height: 1.5;
+  font-size: 15px !important;
+}
+
+.the-article-body img {
+  object-fit: cover;
+  max-width: 800px;
+  text-align: center !important;
+}
