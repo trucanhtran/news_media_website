@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
     get 'dash_board', to: 'dash_board#index'
+    post 'new_admin', to: 'dash_board#create_admin'
+    post 'new_article', to: 'dash_board#create_article'
   end
   root to: 'zingnews#index'
   # Category
