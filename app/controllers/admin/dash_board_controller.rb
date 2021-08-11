@@ -8,17 +8,6 @@ class Admin::DashBoardController < ApplicationController
     @product = Product.new
   end
 
-  def create_admin
-    @user = User.new(user_params)
-    if @user.save
-        respond_to do |format|
-          format.js
-        end
-    else
-      render :index
-      flash.now[:error] = "Tạo tài khoản thất bại"
-    end
-  end
 
   def create_article
     @product = product.new(article_params)
