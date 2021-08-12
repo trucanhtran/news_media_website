@@ -145,26 +145,6 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
-                                        <%= form_with(url: admin_new_article_path) do |form|%>
-                                            <div>
-                                                <%= form.label :title%>
-                                                <%= form.text_area :title%>
-                                            </div>
-                                            <div>
-                                                <%= form.label :description%>
-                                                <%= form.text_area :description%>
-                                            </div>
-                                            <div>
-                                                <%= form.label :content%>
-                                                <%= form.text_area :content%>
-                                            </div>
-                                            <div>
-                                                <%= form.collection_select :category_id, @category, :id, :name%>
-                                            </div>
-                                            <div>
-                                                <%=form.submit "Lưu"%>
-                                            </div>
-                                        <% end %>
                                         <canvas id="myPieChart"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">

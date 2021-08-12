@@ -14,6 +14,10 @@
  *= require_self
  */
 
+// Import trix stylesheet
+@import "trix/dist/trix";
+@import "./actiontext.scss";
+
 @import "zingnews";
 @import "user";
 

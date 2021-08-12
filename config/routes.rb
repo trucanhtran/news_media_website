@@ -7,9 +7,12 @@ Rails.application.routes.draw do
     post 'new_admin', to: 'manage_user#create_admin'
     get 'edit_admin/:id', to: 'manage_user#edit_admin', as: 'edit'
     patch 'update_admin/:id', to: 'manage_user#update_admin', as: 'update'
-    #Article
-    post 'new_article', to: 'dash_board#create_article'
     delete 'delete_admin/:id', to: 'dash_board#delete_admin', as: 'delete'
+    #Article
+    get 'articles', to: 'manage_article#show_articles'
+    get 'new_article', to: 'manage_article#new_article'
+    post 'new_article', to: 'manage_article#create_article'
+    delete 'delete_article/:id', to: 'manage_article#delete_article', as: 'delete_article'
   end
   root to: 'zingnews#index'
   # Category
