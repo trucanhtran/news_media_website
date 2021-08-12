@@ -27,10 +27,25 @@ class Admin::ManageArticleController < ApplicationController
     redirect_to admin_articles_path, notice: 'Bạn đã xóa thành công!'
   end
 
+  def edit_article
+    @product = Product.find_by(id: params[:id])
+    @category = Category.all
+  end
+
+  def update_article
+    @product = Product.find_by(id: params[:id])
+    if @product.update(article_params)
+      redirect_to admin_articles_path, notice: 'Update thành công'
+    else
+      render :update_article
+      flash.now[:error] = 'Lỗi'
+    end
+  end
+
   private
 
   def article_params
-    params.require(:product).permit(:title, :description, :content, :category_id)
+    params.require(:product).permit(:title, :description, :thumbnail, :content, :category_id)
   end
 
   def is_admin

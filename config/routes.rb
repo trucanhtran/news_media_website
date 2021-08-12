@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get 'new_article', to: 'manage_article#new_article'
     post 'new_article', to: 'manage_article#create_article'
     delete 'delete_article/:id', to: 'manage_article#delete_article', as: 'delete_article'
+    get 'edit_article/:id', to: 'manage_article#edit_article', as: 'edit_article'
+    patch 'update_article/:id', to: 'manage_article#update_article', as: 'update_article'
   end
   root to: 'zingnews#index'
   # Category

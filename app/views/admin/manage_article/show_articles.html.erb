@@ -8,7 +8,7 @@
       </tr>
      <% @products.each do |product|%>
         <tr>
-          <td> <%= product.title %></td>
+          <td> <%=link_to product.title, admin_edit_article_path(product.id) %></td>
           <td><%= product&.category&.name %></td>
           <td></td>
           <td><%=link_to 'Xóa', admin_delete_article_path(product.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
