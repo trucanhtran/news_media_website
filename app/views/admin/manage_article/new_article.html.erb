@@ -1,4 +1,5 @@
  <%= form_with(model: @product, url: admin_new_article_path) do |form|%>
+    <%= @user.id%>
     <div>
         <%= form.label :title%>
         <%= form.text_area :title%>

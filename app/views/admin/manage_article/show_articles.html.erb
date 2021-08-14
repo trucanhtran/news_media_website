@@ -6,7 +6,7 @@
         <td>Hot new</td>
         <td></td>
       </tr>
-     <% @products.each do |product|%>
+     <% @products&.each do |product|%>
         <tr>
           <td> <%=link_to product.title, admin_edit_article_path(product.id) %></td>
           <td><%= product&.category&.name %></td>

@@ -9,14 +9,17 @@ class Admin::ManageArticleController < ApplicationController
   def new_article
     @category = Category.all
     @product = Product.new
+    @user = User.find_by(id: session[:user_id])
   end
 
   def create_article
+    @user = User.find_by(id: session[:user_id])
     @product = Product.new(article_params)
+    @product.user_id = @user.id
     if @product.save
       redirect_to admin_articles_path
     else
-      render :index
+      render :show_articles
       flash.now[:error] = "Tạo tài khoản thất bại"
     end
   end
