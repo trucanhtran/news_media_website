@@ -47,7 +47,7 @@ class Admin::ManageArticleController < ApplicationController
 
   def sort_by_date
     date = params[:date]
-    products = Product.all.order("products.updated_at #{date}")
+    products = Product.all.order("products.updated_at #{date}").page(params[:page])
 
     render json: products
   end

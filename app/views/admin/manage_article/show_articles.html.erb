@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody id="id_articles_list">
-          <% @products&.each do |product|%>
+          <% paginate @products&.each do |product|%>
         <tr>
           <td> <%=link_to product.title, admin_edit_article_path(product.id) %></td>
           <td><%= product&.category&.name %></td>
