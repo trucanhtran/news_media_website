@@ -18,7 +18,7 @@ $(document).ready(function(){
       rowTotal.appendChild(textNode);
       node.appendChild(rowTotal);
       var rowDelete = document.createElement("td");
-      var textNode = document.createTextNode(link );
+      var textNode = document.createTextNode(link);
       rowDelete.appendChild(textNode);
       node.appendChild(rowDelete);
       console.log(node)

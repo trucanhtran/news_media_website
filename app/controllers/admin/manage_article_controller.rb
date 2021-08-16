@@ -45,6 +45,13 @@ class Admin::ManageArticleController < ApplicationController
     end
   end
 
+  def sort_by_date
+    date = params[:date]
+    products = Product.all.order("products.updated_at #{date}")
+
+    render json: products
+  end
+
   private
 
   def article_params

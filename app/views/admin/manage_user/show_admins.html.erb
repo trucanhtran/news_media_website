@@ -43,7 +43,7 @@
         <tr>
           <td><%=link_to admin.name, admin_edit_path(admin.id)%></td>
           <td><%= admin.email%></td>
-          <td><%= admin&.products&.size%></td>
+          <td><%=link_to admin&.products&.size, admin_show_articles_path(admin.id)%></td>
           <td>
             <%= link_to 'Xóa', admin_delete_path(admin.id), data: {confirm: "Bạn có chắc muốn xóa?"}, method: :delete %>
           </td>

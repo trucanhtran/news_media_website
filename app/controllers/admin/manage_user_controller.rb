@@ -69,6 +69,11 @@ class Admin::ManageUserController < ApplicationController
     render json: users
   end
 
+  def show_articles
+    admin = User.find_by(id: params[:id])
+    @articles = admin.products.all
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :is_admin)

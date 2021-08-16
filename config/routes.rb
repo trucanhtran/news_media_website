@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post 'search_user_type', to: 'manage_user#search_user_type'
     post 'sort_by_date', to: 'manage_user#sort_by_date'
     post 'sort_by_quantity', to: 'manage_user#sort_by_quantity'
-
+    get ':id/articles', to: 'manage_user#show_articles', as: 'show_articles'
     #Article
     get 'articles', to: 'manage_article#show_articles'
     get 'new_article', to: 'manage_article#new_article'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     delete 'delete_article/:id', to: 'manage_article#delete_article', as: 'delete_article'
     get 'edit_article/:id', to: 'manage_article#edit_article', as: 'edit_article'
     patch 'update_article/:id', to: 'manage_article#update_article', as: 'update_article'
+    post 'articles/sort_by_date', to: 'manage_article#sort_by_date'
 
   end
   root to: 'zingnews#index'
