@@ -3,7 +3,7 @@ class Admin::ManageArticleController < ApplicationController
   before_action :is_admin, only: %i[index]
 
   def show_articles
-    @products = Product.all.order(updated_at: :desc)
+    @products = Product.all.order(updated_at: :desc).page(params[:page])
   end
 
   def new_article
@@ -47,7 +47,13 @@ class Admin::ManageArticleController < ApplicationController
 
   def sort_by_date
     date = params[:date]
-    products = Product.all.order("products.updated_at #{date}").page(params[:page])
+    byebug
+    products = Product
+      .left_joins(:categories)
+      .select('products.id, products.title, categories.name')
+      .group(:id)
+      .order("products.updated_at #{date}")
+      .page(params[:page])
 
     render json: products
   end

@@ -14,7 +14,8 @@ $(document).ready(function(){
 
   $(document).on("change", "#id_date", function(event){
     const value = event.target.value;
-    $.post("/admin/articles/sort_by_date",{date: value}, function(data, status){
+    const page = location.search.split('?page=')[1] ?? 1;
+    $.post("/admin/articles/sort_by_date",{date: value, page: page}, function(data, status){
       handleDisplayUser(data);
     });
   });

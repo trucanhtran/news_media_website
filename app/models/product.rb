@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_rich_text :content
   friendly_id :title, use: :slugged
 
-  max_paginates_per 30
+  paginates_per 50
 
   belongs_to :category
   belongs_to :user
