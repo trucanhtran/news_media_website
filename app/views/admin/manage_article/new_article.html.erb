@@ -17,6 +17,10 @@
         <%= form.rich_text_area :content%>
     </div>
     <div>
+        <%= form.label :hot_new%>
+        <%= form.check_box :hot_new%>
+    </div>
+    <div>
         <%= form.collection_select :category_id, @category, :id, :name%>
     </div>
     <div>

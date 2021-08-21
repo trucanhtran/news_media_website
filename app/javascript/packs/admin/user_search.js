@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  var link = "<%= link_to 'Xóa', admin_delete_path(admin.id), data: {confirm: 'Bạn có chắc muốn xóa?'}, method: :delete %>"
 
   function handleDisplayUser(data){
     document.getElementById("id_user_list").innerHTML = "";
@@ -18,8 +17,11 @@ $(document).ready(function(){
       rowTotal.appendChild(textNode);
       node.appendChild(rowTotal);
       var rowDelete = document.createElement("td");
-      var textNode = document.createTextNode(link);
-      rowDelete.appendChild(textNode);
+      var link = document.createElement("a");
+      link.setAttribute('href',`${document.location.origin}/admin/delete_admin/24`);
+      rowDelete.appendChild(link);
+      var textNode = document.createTextNode('Xóa');
+      link.appendChild(textNode);
       node.appendChild(rowDelete);
       console.log(node)
       document.getElementById("id_user_list").appendChild(node);

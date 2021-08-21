@@ -78,16 +78,16 @@ class ZingNews
     content = document.css(".main .the-article-body").first.inner_html
     thumbnail = product_thumbnail
     product = Product.find_by(title: title)
-    admin =  User.where(email: 'anhttt18411@st.uel.edu.vn')
+    admin =  User.find_by(email: 'anhttt18411@st.uel.edu.vn')
     if product.present?
       product.description = description
       product.content = content
       product.thumbnail = thumbnail
-      product.user_id = admin.ids
+      product.user_id = admin.id
       product.save
       p "Upate product success #{product.title}"
     else
-      new_product = category.products.create(title: title, description: description, content: content, thumbnail: thumbnail, user_id: admin.ids)
+      new_product = category.products.create(title: title, description: description, content: content, thumbnail: thumbnail, user_id: admin.id)
       p "Create product success #{product.title}"
     end
   end

@@ -47,11 +47,9 @@ class Admin::ManageArticleController < ApplicationController
 
   def sort_by_date
     date = params[:date]
-    byebug
     products = Product
-      .left_joins(:categories)
+      .left_joins(:category)
       .select('products.id, products.title, categories.name')
-      .group(:id)
       .order("products.updated_at #{date}")
       .page(params[:page])
 
