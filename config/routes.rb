@@ -22,6 +22,13 @@ Rails.application.routes.draw do
     post 'articles/sort_by_date', to: 'manage_article#sort_by_date'
 
   end
+  namespace :api do
+    get 'users', to: 'user#index'
+    get 'user/:id', to: 'user#show'
+    post 'users', to: 'user#create'
+    delete 'user/:id', to: 'user#delete'
+    put 'user/:id', to: 'user#update'
+  end
   root to: 'zingnews#index'
   # Category
   get 'category/:id/:name', to: 'zingnews#show_category', as: 'category'
