@@ -59,7 +59,7 @@ class Admin::ManageArticleController < ApplicationController
   private
 
   def article_params
-    params.require(:product).permit(:title, :description, :thumbnail, :content, :category_id)
+    params.require(:product).permit(:title, :description, :thumbnail, :content, :category_id, :hot_new)
   end
 
   def is_admin

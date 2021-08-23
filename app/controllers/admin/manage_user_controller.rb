@@ -79,7 +79,7 @@ class Admin::ManageUserController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :is_admin)
   end
 
-  def is_admincdcd
+  def is_admin
     if session[:user_id].nil?
       redirect_to root_path
     else

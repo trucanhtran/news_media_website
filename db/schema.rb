@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 2021_08_12_093948) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "untitled_table_205", id: false, force: :cascade do |t|
+    t.serial "id", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"

@@ -20,14 +20,25 @@ Rails.application.routes.draw do
     get 'edit_article/:id', to: 'manage_article#edit_article', as: 'edit_article'
     patch 'update_article/:id', to: 'manage_article#update_article', as: 'update_article'
     post 'articles/sort_by_date', to: 'manage_article#sort_by_date'
+    #Category
+    get 'categories', to: 'manage_category#show_categories'
+    #Show articles
+    get 'category/:id/articles', to: 'manage_category#show_articles', as: 'category_articles'
 
   end
   namespace :api do
+    #User
     get 'users', to: 'user#index'
     get 'user/:id', to: 'user#show'
     post 'users', to: 'user#create'
     delete 'user/:id', to: 'user#delete'
     put 'user/:id', to: 'user#update'
+    #Article
+    get 'articles', to: 'article#index'
+    get 'article/:id', to: 'article#show'
+    post 'articles', to: 'article#create'
+    delete 'article/:id', to: 'article#delete'
+    put 'article/:id', to: 'article#update'
   end
   root to: 'zingnews#index'
   # Category

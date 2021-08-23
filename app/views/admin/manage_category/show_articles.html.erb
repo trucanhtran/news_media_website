@@ -1,0 +1,7 @@
+<% @articles.each do |article| %>
+  <div>
+    <%=link_to article.title, admin_edit_article_path(article.id)%>
+  </div>
+<% end %>
+
+<%= paginate @articles %>
