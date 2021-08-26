@@ -1,0 +1,30 @@
+ <%= form_with(model: @product, url: admin_update_article_path(@product.id)) do |form|%>
+    <div>
+        <%= form.label :title%>
+        <%= form.text_area :title%>
+    </div>
+    <div>
+        <%= form.label :description%>
+        <%= form.text_area :description%>
+    </div>
+    <div>
+        <%= form.label :thumbnail%>
+        <%= form.text_area :thumbnail%>
+    </div>
+    <div>
+        <%= form.label :content%>
+        <%= form.rich_text_area :content%>
+    </div>
+
+    <div>
+        <%= form.label :hot_new%>
+        <%= form.check_box :hot_new%>
+    </div>
+
+    <div>
+        <%= form.collection_select :category_id, @category, :id, :name%>
+    </div>
+    <div>
+        <%=form.submit "Lưu"%>
+    </div>
+<% end %>

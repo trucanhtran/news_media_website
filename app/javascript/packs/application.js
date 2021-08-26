@@ -14,10 +14,12 @@ require("jquery");
 require("packs/search");
 
 
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("trix")
+require("@rails/actiontext")
 
 // function getSearchBar(searchBar, searchWidth){
 //   const isClosed = searchBar.clientWidth === searchWidth;
@@ -42,3 +44,4 @@ ActiveStorage.start()
 //     getSearchBar(searchBar, searchWidth);
 //   })
 // })
+

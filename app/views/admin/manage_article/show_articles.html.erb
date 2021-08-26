@@ -1,0 +1,41 @@
+<div>
+ <label for="filter">Ngày đăng</label>
+  <select name="filter" id="id_date">
+    <option value=""></option>
+    <option value="desc">Mới nhất</option>
+    <option value="asc">Cũ nhất</option>
+  </select>
+
+  <label for="filter">Hot new</label>
+  <select name="filter" id="id_hot_new">
+    <option value=""></option>
+    <option value="desc">Mới nhất</option>
+    <option value="asc">Cũ nhất</option>
+  </select>
+
+
+  <table>
+      <thead>
+        <tr>
+          <td>Tên </td>
+          <td>Người tạo</td>
+          <td>Thể loại</td>
+          <td>Hot new</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody id="id_articles_list">
+          <% @products&.each do |product|%>
+        <tr>
+          <td><%=link_to product.title, admin_edit_article_path(product.id) %></td>
+          <td><%= product&.user&.id || "Không tên" %></td>
+          <td><%= product&.category&.name %></td>
+          <td></td>
+          <td><%=link_to 'Xóa', admin_delete_article_path(product.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end%>
+      </tbody>
+    </table>
+</div>
+
+<%= paginate @products %>

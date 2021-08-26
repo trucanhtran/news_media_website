@@ -1,0 +1,9 @@
+<% @categories.each do |category|%>
+
+  <div>
+    <%= category.name %>
+    <%= category.products.size %>
+    <%= link_to 'Chi tiết', admin_category_articles_path(category.id) %>
+  </div>
+
+<% end %>

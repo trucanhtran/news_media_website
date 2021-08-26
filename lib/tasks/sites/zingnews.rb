@@ -20,6 +20,7 @@ class ZingNews
     arr_category.each do |link|
       begin
         current_category = link[:category_link]
+        puts "start parsing #{current_category}"
         get_product_links(current_category, link[:category])
       rescue
         puts "Error: #{link}"
@@ -62,14 +63,17 @@ class ZingNews
       begin
         current_product = link[:product_link]
         product_thumbnail = link[:product_thumbnail]
-        get_product_details(current_product,product_thumbnail, category)
+        puts "Start parsing article: #{current_product}"
+        get_product_details(current_product, product_thumbnail, category)
+
       rescue
-        puts "Error: #{link}"
+        puts "Error get link: #{link}"
+
       end
     end
   end
 
-  def get_product_details(current_product,product_thumbnail, category)
+  def get_product_details(current_product, product_thumbnail, category)
     arr_product_detail = []
     document = using_nokogiri(current_product)
     title = document.css(".the-article-header .the-article-title").first.content
@@ -78,15 +82,23 @@ class ZingNews
     content = document.css(".main .the-article-body").first.inner_html
     thumbnail = product_thumbnail
     product = Product.find_by(title: title)
+    admin =  User.find_by(id: '7')
     if product.present?
+
       product.description = description
       product.content = content
+
       product.thumbnail = thumbnail
+      product.user_id = admin.id
+      product.hot_new = false
       product.save
-      p product.content
+      p "Upate product success #{product.title}"
+
     else
-      new_product = category.products.create(title: title, description: description, content: content, thumbnail: thumbnail)
-      p new_product.content
+
+      new_product = category.products.create(title: title, description: description, content: content, thumbnail: thumbnail, hot_new: false, user_id: admin.id)
+      p "Create product success #{product.title}"
+
     end
   end
 

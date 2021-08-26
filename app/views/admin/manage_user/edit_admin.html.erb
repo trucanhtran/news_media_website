@@ -1,0 +1,21 @@
+<%= form_with(model: @user, url: admin_update_path(@user.id), method: :patch) do |form|%>
+  <div>
+    <%= form.label :name, 'Tên'%>
+    <%= form.text_field :name, placeholder: 'Nhập tên' %>
+    <div>
+  <div>
+    <%= form.label :email%>
+    <%= form.text_field :email, placeholder: 'Nhập email'%>
+  </div>
+  <div>
+    <%= form.label :password, 'Mật khẩu'%>
+    <%= form.text_field :password , placeholder: 'Nhập Mật khẩu'%>
+  </div>
+  <div>
+    <%= form.label :is_admin, 'Người quản lý'%>
+    <%= form.check_box :is_admin, checked: true%>
+  </div>
+  <div>
+    <%=form.submit "Lưu"%>
+  </div>
+<% end %>
