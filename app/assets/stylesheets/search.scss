@@ -1,0 +1,30 @@
+// Place all the styles related to the Search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#id_search_page .article-search {
+  display: none;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.number-result {
+  width: 50%;
+  text-align: center;
+  padding: 12px 0 0 12px;
+  color: #2a262677;
+}
+
+.article-result-list {
+  align-items: center;
+  margin-left: 44px;
+}
+
+#id_search_input {
+  padding: 10px;
+  width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

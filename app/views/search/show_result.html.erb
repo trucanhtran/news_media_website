@@ -1,0 +1,39 @@
+<div id="id_search_page">
+
+  <%= render "zingnews/header" %>
+
+  <form class="mt-16 search-form">
+    <input type="text" name="keyword" placeholder="Nhập từ khóa" id="id_search_input">
+    <i class="fas fa-search"></i>
+  </form>
+
+  <div class="number-result">
+    <%= @products.all.size %> kết quả
+  </div>
+
+  <div id="id_article_list" class="flex-column article-result-list">
+    <% @products.each do |product| %>
+     <article class="latest-article-item flex-row mt-12">
+          <div class="latest-article-thumbnail  pd-botttom-8">
+            <img src="<%= product.thumbnail%>", width="200px">
+          </div>
+          <div class="latest-article-content flex-column pl-12">
+            <div class="latest-article-title">
+              <%=link_to product.title, "#" %>
+            </div>
+            <div class="article-time mt-12 flex-row">
+              <div class="article-time-upload">
+                giờ trước
+              </div>
+              <div class="article-category pd-2-side-8">
+                <%= product.category.name %>
+              </div>
+            </div>
+            <div class="latest-article-description mt-12">
+              <%= product.description %>
+            </div>
+          </div>
+        </article>
+    <% end %>
+  </div>
+</div>

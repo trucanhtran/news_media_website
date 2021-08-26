@@ -10,6 +10,9 @@ import "channels"
 //add fontawesome
 import "@fortawesome/fontawesome-free/css/all.css"
 
+require("jquery");
+require("packs/search");
+
 
 Rails.start()
 Turbolinks.start()
@@ -17,3 +20,28 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+
+// function getSearchBar(searchBar, searchWidth){
+//   const isClosed = searchBar.clientWidth === searchWidth;
+//   console.log(isClosed);
+//   if (isClosed){
+//     searchBar.style.width = "200px";
+//   }
+//   else {
+//     searchBar.style.width = "4px";
+//   }
+
+// }
+
+
+// $(document).ready(function(){
+
+// var searchBar = document.getElementById("id_search_bar")
+// var searchWidth = searchBar.clientWidth
+
+//   $(document).on("click", "#id_search", function(){
+
+//     getSearchBar(searchBar, searchWidth);
+//   })
+// })
+
