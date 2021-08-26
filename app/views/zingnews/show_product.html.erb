@@ -11,3 +11,14 @@
     </section>
   </article>
 </div>
+<div>
+  <div>Bình luận<div>
+  <div id = "id_new_comment">
+    <%= form_with do |form|%>
+      <%= form.text_area :comment%>
+    <% end %>
+  <div>
+  <div id="id_list_comment">
+    <%= @products&.comments&.content %>
+  <div>
+</div>

@@ -19,7 +19,7 @@
           </div>
           <div class="latest-article-content flex-column pl-12">
             <div class="latest-article-title">
-              <%=link_to product.title, "#" %>
+              <%=link_to product.title, show_product_path(product.slug) %>
             </div>
             <div class="article-time mt-12 flex-row">
               <div class="article-time-upload">
