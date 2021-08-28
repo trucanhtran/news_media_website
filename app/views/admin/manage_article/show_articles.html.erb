@@ -28,8 +28,8 @@
           <% @products&.each do |product|%>
         <tr>
           <td><%=link_to product.title, admin_edit_article_path(product.id) %></td>
-          <td><%= product&.user&.id || "Không tên" %></td>
-          <td><%= product&.category&.name %></td>
+          <td><%= product&.user_name || "Không tên" %></td>
+          <td><%= product&.category_name %></td>
           <td></td>
           <td><%=link_to 'Xóa', admin_delete_article_path(product.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
         </tr>

@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
-  belongs_to :product, presence: true
-  belongs_to :user, presence: true
+  belongs_to :product, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end

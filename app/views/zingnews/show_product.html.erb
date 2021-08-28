@@ -14,8 +14,11 @@
 <div>
   <div>Bình luận<div>
   <div id = "id_new_comment">
-    <%= form_with do |form|%>
+    <%= form_with(model: @comment, url: comment_path) do |form|%>
+      <%= @product.id %>
+      <%= current_user&.id %>
       <%= form.text_area :comment%>
+      <%=form.submit 'Bình luận'%>
     <% end %>
   <div>
   <div id="id_list_comment">

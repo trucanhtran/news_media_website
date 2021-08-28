@@ -55,5 +55,7 @@ Rails.application.routes.draw do
   post 'dang-xuat', to: 'user#logout', as: 'logout'
   #Search
   get 'tim-kiem', to: 'search#show_result', as: 'show_result'
+  #Comment
+  post 'binh-luan', to: 'comment#get_comment', as: 'comment'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
