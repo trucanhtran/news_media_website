@@ -11,7 +11,14 @@ class Admin::ManageCategoryController < ApplicationController
     @articles = @category.products.all.page(params[:page])
   end
 
+  def new_category
+
+  end
+
   private
+  def category_params
+
+  end
   def is_admin
     if session[:user_id].nil?
       redirect_to root_path
