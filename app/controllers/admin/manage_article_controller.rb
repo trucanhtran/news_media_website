@@ -3,7 +3,10 @@ class Admin::ManageArticleController < ApplicationController
   before_action :is_admin, only: %i[index]
 
   def show_articles
-    @products = Product.all.order(updated_at: :desc).page(params[:page])
+    @products = Product
+      .joins(:user, :category)
+      .select('products.id, products.title, categories.name as category_name, users.name as user_name')
+      .order('products.updated_at desc').page(params[:page])
   end
 
   def new_article

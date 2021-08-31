@@ -42,7 +42,7 @@ class Admin::ManageUserController < ApplicationController
   def search_user_type
     is_admin = params[:user_type] == 'admin'
     users =  User.left_joins(:products)
-      .select('users.id, users.name, users.email, count(users.id) as total_products')
+      .select('users.id, users.name, users.email, count(products.id) as total_products')
       .where(is_admin: is_admin)
       .group(:id)
       .order('users.id asc')
