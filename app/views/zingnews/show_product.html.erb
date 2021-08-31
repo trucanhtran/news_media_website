@@ -13,15 +13,17 @@
 </div>
 <div>
   <div>Bình luận<div>
-  <div id = "id_new_comment">
-    <%= form_with(model: @comment, url: comment_path) do |form|%>
-      <%= @product.id %>
-      <%= current_user&.id %>
-      <%= form.text_area :comment%>
-      <%=form.submit 'Bình luận'%>
-    <% end %>
   <div>
-  <div id="id_list_comment">
-    <%= @products&.comments&.content %>
+      <div id= "id_current_article" ><%= @product.id%></div>
+      <div id= "id_current_user"  ><%= current_user&.id%></div>
+      <textarea id="id_new_comment" rows="4" cols="30"></textarea>
+      <button id= "id_submit_comment">Bình luận</button>
   <div>
+</div>
+<div id="id_list_comment">
+  <% @product&.comments.each do |comment|%>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
 </div>

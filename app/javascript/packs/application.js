@@ -21,27 +21,29 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 
-// function getSearchBar(searchBar, searchWidth){
-//   const isClosed = searchBar.clientWidth === searchWidth;
-//   console.log(isClosed);
-//   if (isClosed){
-//     searchBar.style.width = "200px";
-//   }
-//   else {
-//     searchBar.style.width = "4px";
-//   }
+function displayComment(data){
+  var node = document.createElement("div");
+  var textNode = document.createTextNode(data.content);
+  console.log(data.content)
+  node.appendChild(textNode);
+  document.getElementById("id_list_comment").appendChild(node);
 
-// }
+}
 
+$(document).ready(function(){
 
-// $(document).ready(function(){
+  $(document).on("click", "#id_submit_comment", function(){
+    const comment = $("#id_new_comment").val();
+    const userId = $("#id_current_user").text();
+    const articleId = $("#id_current_article").text();
+      if(userId === ""){
+        alert("Bạn cần đăng nhập để thực hiện chức năng này!");
+      }
+      else{
+        $.post("/binh-luan", {comment: comment, userId: userId, articleId: articleId}, function(data){
+          displayComment(data);
+        })
+      }
 
-// var searchBar = document.getElementById("id_search_bar")
-// var searchWidth = searchBar.clientWidth
-
-//   $(document).on("click", "#id_search", function(){
-
-//     getSearchBar(searchBar, searchWidth);
-//   })
-// })
-
+  })
+})
