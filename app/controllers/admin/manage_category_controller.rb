@@ -19,6 +19,7 @@ class Admin::ManageCategoryController < ApplicationController
   def category_params
 
   end
+
   def is_admin
     if session[:user_id].nil?
       redirect_to root_path

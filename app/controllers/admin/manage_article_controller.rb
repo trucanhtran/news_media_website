@@ -3,10 +3,7 @@ class Admin::ManageArticleController < ApplicationController
   before_action :is_admin, only: %i[index]
 
   def show_articles
-    @products = Product
-      .joins(:user, :category)
-      .select('products.id, products.title, categories.name as category_name, users.name as user_name')
-      .order('products.updated_at desc').page(params[:page])
+    @products = Product.survey_products.page(params[:page])
   end
 
   def new_article
@@ -49,12 +46,8 @@ class Admin::ManageArticleController < ApplicationController
   end
 
   def sort_by_date
-    date = params[:date]
-    products = Product
-      .left_joins(:category)
-      .select('products.id, products.title, categories.name')
-      .order("products.updated_at #{date}")
-      .page(params[:page])
+    sort_date = params[:date]
+    products = Product.survey_products_by_date(sort_date).page(params[:page])
 
     render json: products
   end
