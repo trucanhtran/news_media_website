@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get ':id/articles', to: 'manage_user#show_articles', as: 'show_articles'
     #Article
     get 'articles', to: 'manage_article#show_articles'
-    get 'new_article', to: 'manage_article#new_article'
+
     post 'new_article', to: 'manage_article#create_article'
     delete 'delete_article/:id', to: 'manage_article#delete_article', as: 'delete_article'
     get 'edit_article/:id', to: 'manage_article#edit_article', as: 'edit_article'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     post 'articles/sort_by_date', to: 'manage_article#sort_by_date'
     #Category
     get 'categories', to: 'manage_category#show_categories'
+    get 'new_category', to: 'manage_category#new_category'
     #Show articles
     get 'category/:id/articles', to: 'manage_category#show_articles', as: 'category_articles'
 

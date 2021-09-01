@@ -41,30 +41,20 @@ class Admin::ManageUserController < ApplicationController
 
   def search_user_type
     is_admin = params[:user_type] == 'admin'
-    users =  User.left_joins(:products)
-      .select('users.id, users.name, users.email, count(products.id) as total_products')
-      .where(is_admin: is_admin)
-      .group(:id)
-      .order('users.id asc')
+    users =  User.survey_users_by_type(is_admin)
     render json: users
   end
 
   def sort_by_date
-    users = User
-      .left_joins(:products)
-      .select('users.id, users.name, users.email, count(users.id) as total_products')
-      .group(:id)
-      .order("users.updated_at #{params[:created_at]}")
+    sort_date = params[:created_at]
+    users = User.survey_users_by_date(sort_date)
 
     render json: users
   end
 
   def sort_by_quantity
-    users = User
-      .left_joins(:products)
-      .select('users.id, users.name, users.email, count(users.id) as total_products')
-      .group(:id)
-      .order("count(users.id) #{params[:quantity]}")
+    sort_by_quantity = params[:quantity]
+    users = User.survey_users_by_quatity(sort_by_quantity)
 
     render json: users
   end
