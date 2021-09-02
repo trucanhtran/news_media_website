@@ -3,7 +3,7 @@ class Admin::ManageArticleController < ApplicationController
   before_action :is_admin, only: %i[index]
 
   def show_articles
-    @products = Product.survey_products.page(params[:page])
+    @products = Product.includes(:user, :category).page(params[:page])
   end
 
   def new_article
