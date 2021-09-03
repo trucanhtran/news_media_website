@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get ':id/articles', to: 'manage_user#show_articles', as: 'show_articles'
     #Article
     get 'articles', to: 'manage_article#show_articles'
-
+    get 'new_article', to: 'manage_article#new_article'
     post 'new_article', to: 'manage_article#create_article'
     delete 'delete_article/:id', to: 'manage_article#delete_article', as: 'delete_article'
     get 'edit_article/:id', to: 'manage_article#edit_article', as: 'edit_article'

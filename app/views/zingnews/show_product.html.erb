@@ -11,19 +11,24 @@
     </section>
   </article>
 </div>
-<div>
-  <div>Bình luận<div>
+<section class="section pd-2-side">
   <div>
-      <div id= "id_current_article" ><%= @product.id%></div>
-      <div id= "id_current_user"  ><%= current_user&.id%></div>
-      <textarea id="id_new_comment" rows="4" cols="30"></textarea>
-      <button id= "id_submit_comment">Bình luận</button>
-  <div>
-</div>
-<div id="id_list_comment">
-  <% @product&.comments.each do |comment|%>
+    <header class="section-title">
+      <h3>Bình luận</h3>
+    </header>
+    <div class="pd-2-side flex-column section-comment">
+        <div id= "id_current_article"><%= @product.id%></div>
+        <div id= "id_current_user"><%= current_user&.id%></div>
+        <textarea id="id_new_comment" rows="4" cols="30"></textarea>
+        <button id= "id_submit_comment">Bình luận</button>
     <div>
-      <%= comment.content %>
-    </div>
-  <% end %>
-</div>
+  </div>
+  <div id="id_list_comment">
+    <% @product&.comments.each do |comment|%>
+      <div class="mt-12">
+        <%= comment&.user&.name%>:
+        <%= comment.content %>
+      </div>
+    <% end %>
+  </div>
+</section>

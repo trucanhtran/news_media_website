@@ -1,21 +1,21 @@
-<%= form_with(model: @user, url: admin_new_admin_path, local: false) do |form|%>
-  <div>
+<%= form_with(model: @user, url: admin_new_admin_path, local: false, class:"form-contanier") do |form| %>
+  <div class="form-field">
     <%= form.label :name, 'Tên'%>
     <%= form.text_field :name, placeholder: 'Nhập tên' %>
-    <div>
-  <div>
+  </div>
+  <div class="form-field">
     <%= form.label :email%>
     <%= form.text_field :email, placeholder: 'Nhập email'%>
   </div>
-  <div>
+  <div class="form-field">
     <%= form.label :password, 'Mật khẩu'%>
     <%= form.text_field :password , placeholder: 'Nhập Mật khẩu'%>
   </div>
-  <div>
+  <div class="form-field form-checkbox">
     <%= form.label :is_admin, 'Người quản lý'%>
     <%= form.check_box :is_admin, checked: true%>
   </div>
-  <div>
+  <div class="form-field form-btn">
     <%=form.submit "Lưu"%>
   </div>
 <% end %>
