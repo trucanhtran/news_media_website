@@ -1,5 +1,12 @@
 # news_media_website
 Create a website to read news
+Website have some feature:
+- Index
+- Search Article
+- Read Article
+- Comment
+- SignUp/LogIn
+Website also have Admin page to manage data.
 ![image](https://user-images.githubusercontent.com/60055231/131994884-3bb59ef6-b2ea-4dbb-9375-55c28684bd8c.png)
 ![image](https://user-images.githubusercontent.com/60055231/131994961-4603511d-cb34-4460-8b50-5af4081b7cc1.png)
 ![image](https://user-images.githubusercontent.com/60055231/131995062-d5f4e67e-09bb-427d-93ae-429e575d79a9.png)
