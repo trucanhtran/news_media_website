@@ -60,7 +60,9 @@
         <%= link_to 'Books', category_path(@book.id, @book.name) %>
       </h3>
     </header>
-    <div class="swiper-container mySwiper">
+    <div class="swiper mySwiper">
+
+
       <div class="section-content flex-row mt-12 swiper-wrapper">
         <% @book_products.each do |product| %>
           <article class="box-article-item flex-column mg-2-side-8 swiper-slide">
@@ -73,9 +75,11 @@
           </article>
         <% end %>
       </div>
+
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
+
     </div>
   </section>
 </div>
