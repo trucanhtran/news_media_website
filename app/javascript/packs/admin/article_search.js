@@ -9,6 +9,26 @@ $(document).ready(function(){
       rowTitle.appendChild(textNode);
       node.appendChild(rowTitle);
       document.getElementById("id_articles_list").appendChild(node);
+      var rowUser = document.createElement("td");
+      var textNode = document.createTextNode(data[i].user_name);
+      rowUser.appendChild(textNode);
+      node.appendChild(rowUser);
+      var rowCategory = document.createElement("td");
+      var textNode = document.createTextNode(data[i].category_name);
+      rowCategory.appendChild(textNode);
+      node.appendChild(rowCategory);
+      var rowHotNew = document.createElement("td");
+      const hotNew = data[i].hot_new ? "Hot new" : "";
+      var textNode = document.createTextNode(hotNew);
+      rowHotNew.appendChild(textNode);
+      node.appendChild(rowHotNew);
+      var rowDelete = document.createElement("td");
+      var link = document.createElement("a");
+      link.setAttribute('href',`${document.location.origin}/admin/delete_admin/24`);
+      rowDelete.appendChild(link);
+      var textNode = document.createTextNode('Xóa');
+      link.appendChild(textNode);
+      node.appendChild(rowDelete);
     }
   }
 

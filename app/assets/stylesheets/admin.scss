@@ -7,8 +7,9 @@
 // Import trix stylesheet
 @import "trix/dist/trix";
 @import "actiontext.scss";
+@import "admin/manage.css";
 
-form.form-contanier {
+form.form-container {
   max-width: 275px;
 }
 

@@ -16,8 +16,8 @@ class Product < ApplicationRecord
   }
 
   scope :survey_products_by_date, -> (sort_date = 'desc'){
-    left_joins(:category)
-    .select('products.id, products.title, categories.name')
+    left_joins(:user,:category)
+    .select('products.id, products.title,products.hot_new, categories.name as category_name, users.name as user_name')
     .order("products.updated_at #{sort_date}")
   }
 end
