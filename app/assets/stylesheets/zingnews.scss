@@ -246,3 +246,41 @@ p {
 .latest-title {
   width: 700px;
 }
+
+/*Comment*/
+#id_current_article,
+#id_current_user {
+  visibility: hidden;
+}
+
+.section-comment {
+  align-items: center;
+  position: relative;
+}
+
+.section-comment textarea {
+  border: 1px solid #ccc;
+  width: 900px;
+  max-width: calc(100% - 8px);
+  outline: none;
+}
+
+.section-comment button {
+  border: none;
+  background: #61bce7;
+  padding: 10px;
+  margin: 8px;
+  color: #fff;
+  border-radius: 10px;
+  align-self: flex-end;
+  position: relative;
+  left: -50px;
+}
+
+.section-comment button:hover {
+  opacity: 0.8;
+}
+
+#id_list_comment {
+  align-self: flex-start;
+}

@@ -7,3 +7,45 @@
 // Import trix stylesheet
 @import "trix/dist/trix";
 @import "actiontext.scss";
+@import "admin/manage.css";
+
+form.form-container {
+  max-width: 275px;
+}
+
+.form-field {
+  display: flex;
+  /* min-width: 300px; */
+  justify-content: space-between;
+  margin-top: 8px;
+  align-items: baseline;
+}
+
+.form-field input,
+.form-field textarea,
+select {
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.form-checkbox {
+  justify-content: flex-start;
+}
+
+.form-checkbox label {
+  margin-right: 4px;
+}
+
+/*Article*/
+form.form {
+}
+
+.form-text {
+  justify-content: flex-start;
+}
+
+.form-text label {
+  min-width: 100px;
+}

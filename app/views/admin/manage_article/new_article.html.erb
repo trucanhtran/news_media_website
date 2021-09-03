@@ -1,29 +1,29 @@
- <%= form_with(model: @product, url: admin_new_article_path) do |form|%>
+ <%= form_with(model: @product, url: admin_new_article_path, class:"form") do |form|%>
     <%= @user.id%>
-    <div>
+    <div class="form-field form-text">
         <%= form.label :title%>
         <%= form.text_area :title%>
     </div>
-    <div>
+    <div class="form-field form-text">
         <%= form.label :description%>
         <%= form.text_area :description%>
     </div>
-    <div>
+    <div class="form-field form-text">
         <%= form.label :thumbnail%>
         <%= form.text_area :thumbnail%>
     </div>
-    <div>
+    <div class="form-rich-text">
         <%= form.label :content%>
         <%= form.rich_text_area :content%>
     </div>
-    <div>
+    <div class="form-field form-checkbox">
         <%= form.label :hot_new%>
         <%= form.check_box :hot_new%>
     </div>
-    <div>
+    <div class="form-field">
         <%= form.collection_select :category_id, @category, :id, :name%>
     </div>
-    <div>
+    <div class="form-field">
         <%=form.submit "Lưu"%>
     </div>
 <% end %>
