@@ -19,7 +19,7 @@ class ZingnewsController < ApplicationController
   end
 
   def show_product
-    @product = Product.friendly.find_by(slug: params[:id])
+    @product = Product.includes(comments: [:user]).friendly.find_by(slug: params[:id])
   end
 
   private
